@@ -1,109 +1,95 @@
 🫁 LUNGCANCER
-Handling Missing Biomarker Data in Lung Cancer Patients with Diabetes via KNN Imputation
+Handling Missing Biomarker Data in Lung Cancer Patients with Diabetes Using KNN Imputation
 
-📌 Table of Contents
-Overview
+📘 Overview
+This project addresses a critical issue in clinical informatics: managing missing biomarker data in lung cancer patients, especially those with diabetes. By applying K-Nearest Neighbors (KNN) imputation, we enhance data integrity and improve downstream analyses on key biomarkers:
 
-Data Description
+CA19‑9
 
-Imputation Methodology
+LYVE1
 
-Repository Structure
+CYFRA 21‑1
 
-Installation & Usage
+Creatinine
 
-Examples
+📊 Data Description
+The dataset comprises several CSV files containing clinical and biomarker data:
 
-Results & Findings
+File Name	Description
+patient_data.csv	General patient info and clinical attributes
+Original_Data.csv	Unprocessed original dataset
+diabetes_patients.csv	Subset of patients diagnosed with diabetes
+blood_data_set.csv	Biomarker-specific measurements
+imputed_patient_data.csv	Final dataset with imputed values
+🛠️ Imputation Methodology
+Exploratory Data Analysis (EDA) Conducted via data_info.ipynb to visualize and understand missing data patterns.
 
-Future Work
+KNN Imputation
 
-Licensing & Contributions
+Identifies patient similarity using clinical features
 
-Overview
-This project tackles the challenge of missing clinical data in lung cancer patients, particularly those diagnosed with diabetes. We analyze key biomarkers—CA19‑9, LYVE1, CYFRA 21‑1, and Creatinine—and employ K-Nearest Neighbors (KNN) to impute missing values, enhancing downstream analyses.
+Imputes missing biomarker values via Knn_algorithm.ipynb
 
-Data Description
-patient_data.csv, Original_Data.csv, diabetes_patients.csv, etc.: Raw clinical measurements and patient attributes
+Validation Strategy
 
-blood_data_set.csv: Focused on biomarker measurements (CA19‑9, LYVE1, CYFRA, Creatinine)
+Mask known values to simulate missingness
 
-imputed_patient_data.csv: Contains datasets post-imputation ready for analysis
+Evaluate imputation performance using RMSE and MAE metrics
 
-Imputation Methodology
-Exploratory Analysis: Identify patterns and distribution of missing values via data_info.ipynb.
-
-KNN Imputation:
-
-Fill missing values using KNN based on closest patient profiles
-
-Verified via Knn_algorithm.ipynb
-
-Validation: Compare imputed vs. original values in masked validation to assess accuracy.
-
-Repository Structure
-arduino
-Copy
-Edit
-/
-├── data_info.ipynb           # data exploration & missingness visualization
-├── Knn_algorithm.ipynb       # imputation pipeline demo
-├── main.ipynb                # combined workflow notebook
-├── *.csv                     # raw & cleaned data files
-└── imputed_patient_data.csv  # final imputed dataset
-Installation & Usage
-Clone the repository
-
+🗂️ Repository Structure
+LUNGCANCER/
+├── data_info.ipynb           # Missing data exploration
+├── Knn_algorithm.ipynb       # KNN imputation demo
+├── main.ipynb                # End-to-end workflow
+├── *.csv                     # Raw and processed datasets
+└── imputed_patient_data.csv  # Output: complete dataset
+⚙️ Installation & Usage
+Clone the Repository
 bash
-Copy
-Edit
 git clone https://github.com/Abuosm/LUNGCANCER.git
 cd LUNGCANCER
-Set up environment
-
+Install Dependencies
 bash
-Copy
-Edit
 pip install -r requirements.txt
-Run the notebooks
+Run the Notebooks
+data_info.ipynb: Visualize missingness
 
-data_info.ipynb: Explore missing patterns
+Knn_algorithm.ipynb: Perform imputation
 
-Knn_algorithm.ipynb: Execute imputation on sample sets
+main.ipynb: Execute the full imputation pipeline
 
-main.ipynb: Full workflow with data pre- and post-imputation
+💡 Examples & Outputs
+📉 Missingness Report: Heatmaps and summaries of incomplete data
 
-Examples
-Missingness Report: Clear visuals and statistics for absent biomarker data
+🔁 Before vs After: Visualize the impact of imputation
 
-Before/After Comparison: Visualize how KNN fills in values
+📈 Performance Metrics: RMSE and MAE plots for validation sets
 
-Performance Metrics: Imputation error rates via RMSE and MAE
+📈 Results & Findings
+Imputation filled missing biomarker values across ~X% of the dataset
 
-Results & Findings
-Successfully imputed missing biomarker values across ~X% of the dataset
+Achieved RMSE = Y, MAE = Z for the validation cohort
 
-Achieved RMSE of Y and MAE of Z for validation cohort
+Significantly improved data completeness for robust clinical analysis
 
-Enhanced dataset completeness enables more reliable statistical analysis downstream
+🚀 Future Work
+Compare KNN with advanced imputation techniques (e.g., MICE, regression, deep learning)
 
-Future Work
-Compare KNN with other imputation strategies (e.g., MICE, regression)
+Integrate imputed data into lung cancer risk or progression prediction models
 
-Integrate imputed data into predictive lung cancer models
+Package the imputation pipeline into a reusable Python or R module
 
-Automate imputation using a modular Python or R package
+📜 License
+This repository is licensed under the MIT License. Feel free to use and adapt!
 
-Licensing & Contributions
-This project is released under the MIT License
+🤝 Contributions
+Contributions, improvements, and bug fixes are welcome!
 
-Contributions are welcome!
+Open an Issue or submit a Pull Request
 
-Fix bugs, add features, improve documentation
+Improve documentation, add more data sources, or optimize the algorithm
 
-Please open a Pull Request or Issue 🎉
+Let’s make clinical data cleaner together! 🧪
 
-✅ Acknowledgements
-Thanks to the original data contributors and authors
-
-Inspiration from best practices in clinical data imputation workflows
+🙌 Acknowledgements
+Gratitude to the original data providers and all contributors. Inspired by best practices in biomedical data science and imputation strategies.
